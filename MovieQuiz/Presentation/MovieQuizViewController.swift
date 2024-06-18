@@ -63,11 +63,10 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     func showNextQuestionOrResults() {
         if currentQuestionIndex == questionsAmount - 1 {
             statisticService?.store(correct: correctAnswers, total: questionsAmount)
-            let bestGame = statisticService?.bestGame
             let text = """
 Ваш результат: \(correctAnswers)/\(questionsAmount)
 Количество сыгранных квизов: \(statisticService?.gamesCount ?? 0)
-Рекорд: \(bestGame?.correct ?? 0)/\(questionsAmount) (\(String(describing: bestGame?.date.dateTimeString ?? "")))
+Рекорд: \(statisticService?.bestGame.correct ?? 0)/\(questionsAmount) (\(String(describing: statisticService?.bestGame.date.dateTimeString ?? "")))
 Средняя точность: \(String(format: "%.2f", statisticService?.totalAccuracy ?? ""))%
 """
             let alertModel = AlertModel(

@@ -1,8 +1,3 @@
-//
-//  AlertModel.swift
-//  MovieQuiz
-//
-//  Created by Misha Van on 13.06.2024.
 import UIKit
 import Foundation
 

@@ -17,7 +17,7 @@ final class StatisticService: StatisticServiceProtocol{
     private let storage: UserDefaults = .standard
     
     var totalAccuracy: Double {
-        ((Double(total) / Double(gamesCount)) * 10)
+        ((Double(correctAnswer) / Double(gamesCount)) * 10)
     }
     
     var correct: Int {
@@ -67,7 +67,7 @@ final class StatisticService: StatisticServiceProtocol{
         gamesCount += 1
         
         
-        let correct = storage.integer(forKey: Keys.correct.rawValue) + count
+        correct = storage.integer(forKey: Keys.correct.rawValue) + count
         let ppoopLlll = self.bestGame
         let newRecord = GameResult(correct: count, total: amount, date: Date())
         
